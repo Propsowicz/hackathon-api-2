@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: hackathon-api-2
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "cd core && gunicorn core.wsgi:application"
+    envVars:
+      - key: DB_URL
+        fromDatabase:
+          name: api
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
