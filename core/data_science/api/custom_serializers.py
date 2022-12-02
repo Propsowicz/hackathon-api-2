@@ -149,7 +149,6 @@ def pearson_corr(data_dict):
             if np.isnan(val):
                 matrix_list[i][y_scale].append({'x': x_scale, 'v':0})
             else:
-                # matrix_list.append({'x': x_scale, 'y':y_scale, 'v':val})
                 matrix_list[i][y_scale].append({'x': x_scale, 'v':val})
         i += 1
 

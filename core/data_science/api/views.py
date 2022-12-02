@@ -41,18 +41,6 @@ class PlayerStatsAPI(APIView):
 
         return Response(serializer.data)
 
-# class PlayerTotalStatsAPI(APIView):
-
-#     def get(self, request, id, season):
-
-#         season_changed = season.replace('-', '/')
-#         player = PlayerBio.objects.get(id=id)
-#         season_id = Season.objects.filter(player=player, name=season_changed)[0].id
-
-
-#         return Response([each_match_stats(season_id), 
-#                         total_stats(season_id),         
-#                         ])
 
 class PlayerTotalStatsAPI(APIView):
 
