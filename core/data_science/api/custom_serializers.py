@@ -93,7 +93,6 @@ def each_match_stats(season_id):
         matches_stats['tackles'].append(_.tackles)
         matches_stats['interceptions'].append(_.interceptions)
         matches_stats['fouls'].append(_.fouls)
-        matches_stats['dribbled'].append(_.dribbled)
         matches_stats['shots'].append(_.shots)
         matches_stats['shots_on_target'].append(_.shots_on_target)
         matches_stats['dribbled'].append(_.dribbles)
