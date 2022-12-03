@@ -26,6 +26,18 @@ class PlayersBioAPI(APIView):
         except:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
+class FavouritesPlayersBioAPI(APIView):
+    def get(self, request, ids):
+        x = ids[3::]
+        list_of_ids = [int(x.split(',')[i]) for i in range(len(x.split(',')))]
+        try:
+            player_bio = PlayerBio.objects.filter(id__in=list_of_ids)
+            serializer = PlayerBioSerializer(player_bio, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except: 
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+
 class PlayerStatsAPI(APIView):
     def get(self, request, id, season):
         try:
