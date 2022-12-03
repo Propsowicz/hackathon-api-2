@@ -53,11 +53,11 @@ class DetailMatchStats(models.Model):
     tackles = models.IntegerField(default=0)
     interceptions = models.IntegerField(default=0)
     fouls  = models.IntegerField(default=0)
-    blocks = models.IntegerField(default=0 )
+    dribbled = models.IntegerField(default=0 )
 
     # offensives
     shots = models.IntegerField(default=0)
-    key_passes = models.IntegerField(default=0)
+    shots_on_target = models.IntegerField(default=0)
     dribbles = models.IntegerField(default=0)
     fouled = models.IntegerField(default=0)
     offsides = models.IntegerField(default=0)
@@ -65,7 +65,7 @@ class DetailMatchStats(models.Model):
     # passes
     passes = models.IntegerField(default=0)
     passes_on_target = models.IntegerField(default=0)
-    crosses = models.IntegerField(default=0)
+    key_passes = models.IntegerField(default=0)
 
     def __str__(self):
         return f'details of: {self.match.season.club} : {self.match.oponnent_name}'

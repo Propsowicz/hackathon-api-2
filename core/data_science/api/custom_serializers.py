@@ -1,5 +1,5 @@
 import json
-from data_science.models import PlayerBio, Match, Season
+from data_science.models import PlayerBio, Match, Season, DetailMatchStats
 import pandas as pd
 import numpy as np
 
@@ -61,29 +61,98 @@ def total_stats(season_id):
 
 def each_match_stats(season_id):
     matches = Match.objects.filter(season__id=season_id)
+    matches_details = DetailMatchStats.objects.select_related('match').filter(match__season__id=season_id)
+
     matches_stats = {
         'goals': [],
         'assists': [],
         'minutes': [],
         'yellow_cards': [],
-        'red_cards': []
+        'red_cards': [],
+        'tackles': [],
+        'interceptions': [],
+        'fouls': [],
+        'blocks': [],
+        'shots': [],
+        'shots_on_target': [],
+        'dribbled': [],
+        'fouled': [],
+        'offsides': [],
+        'passes': [],
+        'passes_on_target': [],
+        'key_passes': [],
+        'win': [],
+        'draw': [],
+        'lost': [],
     }
 
-    for _ in matches:
-        matches_stats['goals'].append(_.player_goals)
-        matches_stats['assists'].append(_.player_assists)
-        matches_stats['minutes'].append(_.player_minutes)
+    for _ in matches_details:
+        matches_stats['goals'].append(_.match.player_goals)
+        matches_stats['assists'].append(_.match.player_assists)
+        matches_stats['minutes'].append(_.match.player_minutes)
+        matches_stats['tackles'].append(_.tackles)
+        matches_stats['interceptions'].append(_.interceptions)
+        matches_stats['fouls'].append(_.fouls)
+        matches_stats['dribbled'].append(_.dribbled)
+        matches_stats['shots'].append(_.shots)
+        matches_stats['shots_on_target'].append(_.shots_on_target)
+        matches_stats['dribbled'].append(_.dribbles)
+        matches_stats['fouled'].append(_.fouled)
+        matches_stats['offsides'].append(_.offsides)
+        matches_stats['passes'].append(_.passes)
+        matches_stats['passes_on_target'].append(_.passes_on_target)
+        matches_stats['key_passes'].append(_.key_passes)        
         
-        if _.player_yellow_card:
+        if _.match.player_yellow_card:
             matches_stats['yellow_cards'].append(1)
         else:
             matches_stats['yellow_cards'].append(0)
-        if _.player_red_card:
+        if _.match.player_red_card:
             matches_stats['red_cards'].append(1)
         else:
             matches_stats['red_cards'].append(0)
+            
+        if _.match.team_goals_scored > _.match.team_goals_lost:
+            matches_stats['win'].append(1)    
+            matches_stats['draw'].append(0)    
+            matches_stats['lost'].append(0)    
+        elif _.match.team_goals_scored < _.match.team_goals_lost:
+            matches_stats['win'].append(0)    
+            matches_stats['draw'].append(0)    
+            matches_stats['lost'].append(1)    
+        else:
+            matches_stats['win'].append(0)    
+            matches_stats['draw'].append(1)    
+            matches_stats['lost'].append(0)     
         
-    return matches_stats
+    bar_chart = {
+        'def':             
+            {
+                'tackles': sum(matches_stats['tackles']),
+                'interceptions': sum(matches_stats['interceptions']),
+                'fouls': sum(matches_stats['fouls']),
+                'dribbled': sum(matches_stats['dribbled']),       
+            },
+        'attack':
+            {
+                'shots': sum(matches_stats['shots']),
+                'shots_on_target': sum(matches_stats['shots_on_target']),
+            },
+        'pass':
+            {   
+                'passes': sum(matches_stats['passes']),
+                'passes_on_target': sum(matches_stats['passes_on_target']),
+                'key_passes': sum(matches_stats['key_passes'])
+            }
+    }
+
+    perc_stats = {
+        'def_success_rate': round((sum(matches_stats['tackles']) + sum(matches_stats['interceptions'])) / (sum(matches_stats['tackles']) + sum(matches_stats['interceptions']) + sum(matches_stats['fouls']) + sum(matches_stats['dribbled'])) * 100, 1),
+        'att_success_rate': round(sum(matches_stats['shots_on_target']) / (sum(matches_stats['shots'])) * 100, 1),
+        'pass_success_rate': round(sum(matches_stats['passes_on_target']) / (sum(matches_stats['passes'])) * 100, 1),
+    }
+
+    return matches_stats, bar_chart, perc_stats
 
 def correlations(season_id):
     matches = Match.objects.filter(season__id=season_id)
@@ -152,3 +221,4 @@ def pearson_corr(data_dict):
         i += 1
 
     return matrix_list
+
