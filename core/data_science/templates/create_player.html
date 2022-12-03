@@ -7,6 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+    {%if user.is_authenticated%}
+        <form method="post">
+            {%csrf_token%}
+            <input placeholder="first name" name='f_name'/>
+            <input placeholder="last name" name='l_name'/>
+            <input placeholder="position" name='position'/>
+            <input placeholder="nation" name='nation'/>
+            <input placeholder="club" name='club'/>
+            <input placeholder="prefered foot" name='foot'/>
+            <br /><br />
+            <button class="btn btn-secondary">DODAJ RECORD</button>
+        </form>
+    {%else%}
+        Go away!
+    {%endif%}
+
 </body>
 </html>

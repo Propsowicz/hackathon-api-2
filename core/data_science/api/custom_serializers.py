@@ -200,11 +200,12 @@ def correlations(season_id):
     minutes_corr = {**minutes_corr, **results}
     goals_corr = {**goals_corr, **results}
     assists_corr = {**assists_corr, **results}
-    clean_corr = {**clean_corr, **results}    
+    clean_corr = {**clean_corr, **results}   
     
-    return [pearson_corr(minutes_corr), pearson_corr(goals_corr), pearson_corr(assists_corr), pearson_corr(clean_corr)]
+    return {**pearson_corr(minutes_corr), **pearson_corr(goals_corr), **pearson_corr(assists_corr), **pearson_corr(clean_corr)}
 
 def pearson_corr(data_dict):
+    # print(data_dict)
     df = pd.DataFrame.from_dict(data_dict)
     Pcorr = df.corr()
 
@@ -219,5 +220,5 @@ def pearson_corr(data_dict):
                 matrix_list[i][y_scale].append({'x': x_scale, 'y':val})
         i += 1
 
-    return matrix_list
+    return matrix_list[0]
 
