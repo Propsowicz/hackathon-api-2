@@ -203,7 +203,8 @@ def correlations(season_id):
     clean_corr = {**clean_corr, **results}   
     
     # return [{**pearson_corr(minutes_corr), **pearson_corr(goals_corr), **pearson_corr(assists_corr), **pearson_corr(clean_corr)}]
-    return [pearson_corr(minutes_corr), pearson_corr(goals_corr), pearson_corr(assists_corr), pearson_corr(clean_corr)]
+    return [[pearson_corr(minutes_corr), pearson_corr(goals_corr), pearson_corr(assists_corr), pearson_corr(clean_corr)]]
+    # return [pearson_corr(minutes_corr), pearson_corr(goals_corr), pearson_corr(assists_corr), pearson_corr(clean_corr)]
 
 def pearson_corr(data_dict):
     # print(data_dict)
@@ -222,5 +223,5 @@ def pearson_corr(data_dict):
                 matrix_list[i][y_scale].append({'x': x_scale, 'y':val})
             # j += 1            
         i += 1
-    return matrix_list
+    return matrix_list[0]
 
