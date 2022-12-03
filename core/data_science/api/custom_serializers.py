@@ -202,7 +202,7 @@ def correlations(season_id):
     assists_corr = {**assists_corr, **results}
     clean_corr = {**clean_corr, **results}   
     
-    return {**pearson_corr(minutes_corr), **pearson_corr(goals_corr), **pearson_corr(assists_corr), **pearson_corr(clean_corr)}
+    return [{**pearson_corr(minutes_corr), **pearson_corr(goals_corr), **pearson_corr(assists_corr), **pearson_corr(clean_corr)}]
 
 def pearson_corr(data_dict):
     # print(data_dict)
@@ -214,7 +214,7 @@ def pearson_corr(data_dict):
     for y_scale in Pcorr:
         matrix_list.append({y_scale: []})
         j = 0
-        for x_scale, val in zip(Pcorr, np.array(Pcorr)[i]):                           
+        for x_scale, val in zip(Pcorr, np.array(Pcorr)[i]):                            
             if np.isnan(val) and j != 0:
                 matrix_list[i][y_scale].append({'x': x_scale, 'y':0})
             elif j != 0:
