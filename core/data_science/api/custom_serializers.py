@@ -136,7 +136,6 @@ def correlations(season_id):
     
     return [pearson_corr(minutes_corr), pearson_corr(goals_corr), pearson_corr(assists_corr), pearson_corr(clean_corr)]
 
-
 def pearson_corr(data_dict):
     df = pd.DataFrame.from_dict(data_dict)
     Pcorr = df.corr()

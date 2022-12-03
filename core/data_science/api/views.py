@@ -49,11 +49,10 @@ class PlayerTotalStatsAPI(APIView):
         season_changed = season.replace('-', '/')
         player = PlayerBio.objects.get(id=id)
         season_id = Season.objects.filter(player=player, name=season_changed)[0].id
-        correlations(season_id)
 
-        return Response([ 
+        return Response( 
                         total_stats(season_id),         
-                        ])
+                        )
 
 class PlayerDetailsAPI(APIView):
 
@@ -61,7 +60,6 @@ class PlayerDetailsAPI(APIView):
         season_changed = season.replace('-', '/')
         player = PlayerBio.objects.get(id=id)
         season_id = Season.objects.filter(player=player, name=season_changed)[0].id
-        correlations(season_id)
 
         return Response([correlations(season_id),
                         each_match_stats(season_id),                 

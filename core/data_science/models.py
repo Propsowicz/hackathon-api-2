@@ -45,3 +45,27 @@ class Match(models.Model):
 
     def __str__(self):
         return f'{self.season.club} : {self.oponnent_name}'
+
+class DetailMatchStats(models.Model):
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, null=True, blank=True)
+
+    # defensives
+    tackles = models.IntegerField(default=0)
+    interceptions = models.IntegerField(default=0)
+    fouls  = models.IntegerField(default=0)
+    blocks = models.IntegerField(default=0 )
+
+    # offensives
+    shots = models.IntegerField(default=0)
+    key_passes = models.IntegerField(default=0)
+    dribbles = models.IntegerField(default=0)
+    fouled = models.IntegerField(default=0)
+    offsides = models.IntegerField(default=0)
+
+    # passes
+    passes = models.IntegerField(default=0)
+    passes_on_target = models.IntegerField(default=0)
+    crosses = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'details of: {self.match.season.club} : {self.match.oponnent_name}'
