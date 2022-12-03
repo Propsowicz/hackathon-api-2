@@ -28,7 +28,7 @@ class PlayersBioAPI(APIView):
 
 class FavouritesPlayersBioAPI(APIView):
     def get(self, request, ids):
-        x = ids[3::]
+        x = ids[4::]
         list_of_ids = [int(x.split(',')[i]) for i in range(len(x.split(',')))]
         try:
             player_bio = PlayerBio.objects.filter(id__in=list_of_ids)
