@@ -213,13 +213,13 @@ def pearson_corr(data_dict):
     matrix_list = []
     for y_scale in Pcorr:
         matrix_list.append({y_scale: []})
-        j = 0
+        # j = 0
         for x_scale, val in zip(Pcorr, np.array(Pcorr)[i]):                            
-            if np.isnan(val) and j != 0:
+            if np.isnan(val):
                 matrix_list[i][y_scale].append({'x': x_scale, 'y':0})
-            elif j != 0:
+            else:
                 matrix_list[i][y_scale].append({'x': x_scale, 'y':val})
-            j += 1            
+            # j += 1            
         i += 1
     return matrix_list[0]
 
