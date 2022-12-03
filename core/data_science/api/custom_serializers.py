@@ -20,11 +20,7 @@ def total_stats(season_id):
         'team_goals_particip': 0,
         'clean_defence': 0
 
-    }
-
-    # todo:
-    # goals/assist which made the final score of match
-    # forma strzelecka
+    }  
 
     matches_qty = matches.count()
     for _ in matches:

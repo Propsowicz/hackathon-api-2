@@ -67,4 +67,3 @@ def createGenericPlayer(first_name, last_name, main_position, nationality, curre
         
 
 
-# createGenericPlayer('Taduesz', 'Piechna', 'ST', 'POL', 'Korona Kielce', 'right')
