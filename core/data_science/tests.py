@@ -28,3 +28,4 @@ class TotalStats(TestCase):
         
         self.assertEqual(should_be_seventeen.count(), 17)
         self.assertNotEqual(should_be_zero, should_be_seventeen)
+        
