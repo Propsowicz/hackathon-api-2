@@ -16,6 +16,12 @@ The user should be able to create an account, manage it and pin their favorite p
 
 and transfer user data between backends via JWT.
 
+## Results
+
+Although our project did not win the competition, it was highly appreciated by other teams. :muscle:
+
+Nevertheless, two members of our team were awarded individually. [Adriskk](https://github.com/Adriskk) was recognized for his frontend skills, and I was recognized for my team leadership and communication skills. 
+
 ## My role
 
 My task was to create a backend in Python. I used the Django (DRF) framework. Database was SQlite3. The backend endpoint was deployed to the cloud service (render.com).
