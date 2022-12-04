@@ -44,19 +44,19 @@ I was able to analyze data with numpy and pandas libraries.
 
 Here are some pictures of the application which we was able to do in 24h :)
 
-### Players list
+#### Players list
 
 ![home](https://github.com/Propsowicz/hackathon-api-2/blob/dev/pics/players.png?raw=true)
 
-### Single player details
+#### Single player details
 
 ![details](https://github.com/Propsowicz/hackathon-api-2/blob/dev/pics/details.png?raw=true)
 
-### Register form
+#### Register form
 
 ![register](https://github.com/Propsowicz/hackathon-api-2/blob/dev/pics/register.png?raw=true)
 
-### Login form
+#### Login form
 
 ![login](https://github.com/Propsowicz/hackathon-api-2/blob/dev/pics/login.png?raw=true)
 
