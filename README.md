@@ -2,15 +2,15 @@
 
 ## Project
 
-The task choosen by our team was to create web application to collect and compare statistics of football players. 
+The task chosen by our team was to create a web application to collect and compare statistics of football players. 
 
 The setup of our team forced us to create two RestAPI backends and work in the microservices architecture. 
 
-Frontend was created in TSReact. Backends was created in NestJS [user managment] and Python [data managment].
+The frontend was created in TSReact. Backends was created in NestJS [user managment] and Python [data managment].
 
 ## Primary Plan
 
-The plan was to create a web application in which the user would be able to find a player's profile, check his statistics, analyze the data, and finally compare him with another player.
+The plan was to create a web application in which the user could find a player's profile, check his statistics, analyze the data, and finally compare him with another player.
 
 The user should be able to create an account, manage it and pin their favorite players. It was also planned to create a subscription model for using the application,
 
@@ -24,11 +24,11 @@ Nevertheless, two members of our team were awarded individually. [Adriskk](https
 
 ## My role
 
-My task was to create a backend in Python. I used the Django (DRF) framework. Database was SQlite3. The backend endpoint was deployed to the cloud service (render.com).
+My task was to create a backend in Python. I used the Django (DRF) framework. The database was SQlite3. The backend endpoint was deployed to the cloud service (render.com).
 
-The data was randomly created by simple script included in my backend.
+The data was randomly created by a simple script included in my backend.
 
-My job was not only to colect data, but also to analyze it and finally send it to the frontend. 
+My job was not only to collect data, but also to analyze it and finally send it to the frontend. 
 
 I was able to analyze data using numpy and pandas libraries.
 
