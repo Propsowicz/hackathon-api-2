@@ -1,4 +1,4 @@
-# Silevis World Cup 2022 Hackathon 
+# Silevis World Cup 2022 Hackathon :soccer::star:
 
 ## Project
 
