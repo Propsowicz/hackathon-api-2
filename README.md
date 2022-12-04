@@ -40,9 +40,21 @@ I was able to analyze data with numpy and pandas libraries.
 
 ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
+## Pictures
+
+Here are some pictures of the application which we was able to do in 24h :)
+
+
+
 ## Contributions
 
 My team :)
+
+[antostibijka](https://github.com/antostibijka)
+
+[Adriskk](https://github.com/Adriskk)
+
+[zkuba94](https://github.com/zkuba94)
 
 
 
